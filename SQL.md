@@ -45,4 +45,36 @@ A database most often contains one or more tables. Each table is identified by a
   The following SQL statement deletes all rows in the "Customers" table, without deleting the table:\
   ![image](https://user-images.githubusercontent.com/51430523/138036260-697288a5-0da6-491f-b6db-ab0d736810f5.png)
 
+- `SELECT TOP` / `LIMIT` / `FETCH FIRST`\
+  specify the number of records to return.\
+  useful on large tables with thousands of records. Returning a large number of records can impact performance.
+  
+  - Not all database systems support the SELECT TOP clause:\
+  SQL Server / MS Access Syntax: `SELECT TOP`\
+  MySQL: `LIMIT`\
+  oracle: `FETCH FIRST n ROWS ONLY`  and  `ROWNUM`\
+  ![image](https://user-images.githubusercontent.com/51430523/138037164-f4af0cb9-1f6b-46b8-a566-d0cfcf0e3b34.png)
+  ![image](https://user-images.githubusercontent.com/51430523/138037211-425dbb59-99fb-4717-989c-a55815060fec.png)
 
+  - `MIN()`  /  `MAX()`
+  
+  - 区分`COUNT()` 和 `SUM()`
+  
+  - 慎用 `AVG()`
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
