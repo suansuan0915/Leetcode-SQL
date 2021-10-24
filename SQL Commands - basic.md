@@ -57,11 +57,18 @@ A database most often contains one or more tables. Each table is identified by a
   ![image](https://user-images.githubusercontent.com/51430523/138037164-f4af0cb9-1f6b-46b8-a566-d0cfcf0e3b34.png)
   ![image](https://user-images.githubusercontent.com/51430523/138037211-425dbb59-99fb-4717-989c-a55815060fec.png)
 
-  - `MIN()`  /  `MAX()`
+- `OFFSET`\
+  `LIMIT ... OFFSET ...`\
+  ![image](https://user-images.githubusercontent.com/51430523/138578187-7c43e42e-10b4-45da-8a73-b107ed3f5c53.png)\
+  \
+  OFFSET  clause skips the offset rows before beginning to return the rows. BUT it's optional.\
+  OFFSET  skips offset rows first before the LIMIT  constrains the number of rows.
+
+- `MIN()`  /  `MAX()`
   
-  - 区分`COUNT()` 和 `SUM()`
+- 区分`COUNT()` 和 `SUM()`
   
-  - 慎用 `AVG()`
+- 慎用 `AVG()`
   
 - `LIKE`\
   ![image](https://user-images.githubusercontent.com/51430523/138218562-7a189a06-4b9e-4ab4-8c6e-50e50a86062d.png)
