@@ -52,7 +52,7 @@ A database most often contains one or more tables. Each table is identified by a
   
   - Not all database systems support the SELECT TOP clause:\
   SQL Server / MS Access Syntax: `SELECT TOP`\
-  MySQL: `LIMIT`\
+  MySQL / PostgreSQL: `LIMIT`\
   oracle: `FETCH FIRST n ROWS ONLY`  and  `ROWNUM`\
   ![image](https://user-images.githubusercontent.com/51430523/138037164-f4af0cb9-1f6b-46b8-a566-d0cfcf0e3b34.png)
   ![image](https://user-images.githubusercontent.com/51430523/138037211-425dbb59-99fb-4717-989c-a55815060fec.png)
