@@ -17,3 +17,103 @@ FROM Person p LEFT JOIN Address a
 ON p.personID = a.personID;
 
 ```
+
+
+# 196. Delete Duplicate Emails
+
+## Things to notice
+- Every derived table must have its own alias\
+  每一个派生出来的表都必须有一个自己的别名.\
+  因为修改表的时候不能直接查询被修改的表, 所以需要中间表(临时表)过渡。
+
+- `UNION`\
+  two things for `UNION` must be two `SELECT` clause, and the unioned table should have an alias.
+- `DELETE`
+  DELETE xxx FROM table WHERE ...\
+  example:
+  ```
+  DELETE t1 FROM t1 LEFT JOIN t2 ON t1.id=t2.id WHERE t2.id IS NULL;
+  ```
+  这种DELETE方式很陌生，竟然和SELETE的写法类似。它涉及到t1和t2两张表，DELETE t1表示要删除t1的一些记录，具体删哪些，就看WHERE条件，满足就删；\
+  here, t1 left join t2, there can be some l2.id that not match l1.id, so we need to delete "WHERE" clause denotes -> **delete ALL fields in t1 which not match t2.id**.
+
+- `IN` vs. `EXISTS`\
+  
+  ![image](https://user-images.githubusercontent.com/51430523/140696467-7d04b44e-e9d9-4e32-97e4-c03b97857a15.png)
+  
+  \
+  ![image](https://user-images.githubusercontent.com/51430523/140698088-efd22796-aa52-4fef-a50b-05e3c09262d2.png)\
+  the statement returns the values from the main select statement if it is existing in the subquery statement.\
+  \
+  `SELECT EXISTS (<query statement>);`
+  check the existence of the value\
+  \
+  MySQL EXITS is used to find out whether a particular row is existing in the table or not. \
+  MySQL Exists is used with the subquery and returns the rows that are equal to the result returned by the subquery. \
+  \
+  The statement returns true if the row exists in the table else false. (1 or 0)\
+  \
+  It is very inefficient to use the EXISTS in the MySQL since EXISTS re-run for every query in the table. So, it is significant to not use the EXISTS condition.
+
+- 查询的子集\
+  
+  最内层的查询结果还有group by的结果，所以实际上是email和id都有。not in查询的表只可以有一列.\
+```
+DELETE FROM table
+WHERE id NOT IN
+    (SELECT p.p_id 
+    FROM
+        ( SELECT ...
+            FROM ...
+            ...) AS p)
+```
+
+## Solution
+- Method 1:\
+  [solution link](https://leetcode-cn.com/problems/delete-duplicate-emails/solution/dui-guan-fang-ti-jie-zhong-delete-he-de-jie-shi-by/)\
+  ![image](https://user-images.githubusercontent.com/51430523/140692144-6b85d837-421b-432b-a528-311ee2afbd32.png)
+
+```ruby
+
+DELETE p2
+FROM Person p1, Person p2
+WHERE p1.email = p2.email AND p1.id < p2.id; 
+
+```
+
+- Method 2:\
+  ![image](https://user-images.githubusercontent.com/51430523/140693889-1043e311-5eff-4f56-b0be-74a5dfaee7ca.png)
+  
+```ruby
+
+DELETE FROM Person 
+WHERE id NOT IN
+    (SELECT p.p_id 
+    FROM
+        ( SELECT min(id) AS p_id
+            FROM Person
+            GROUP BY email ) AS p)
+
+```
+此时p是一个table，所以要再select一遍其中的id作为id not in where查询的子集！
+
+- Method 3:\
+  `EXISTS`
+```ruby
+
+delete
+from Person a
+where not exists
+    (
+        select Id
+        from
+            (
+                select Email,
+                    min(Id) Id
+                from Person
+                group by Email
+            ) b
+        where a.Id = b.Id
+    )
+
+```
