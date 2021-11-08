@@ -117,3 +117,55 @@ where not exists
     )
 
 ```
+
+
+
+# 1511. Customer Order Frequency
+
+[Problem](https://leetcode.com/problems/customer-order-frequency/)
+
+## Things to notice
+- DATE functions\
+  `DATE_FORMAT(date, format)`\
+  format a date as specified.
+
+- aggregation in GROUP BY -> use HAVING\
+  Use the MySQL HAVING clause with the GROUP BY clause to specify a filter condition for groups of rows or aggregates.\
+  - The difference is: \
+    WHERE clause filters which rows MySQL selects. \
+    *Then* MySQL groups the rows together and aggregates the numbers for your COUNT function.\
+    HAVING is like WHERE, BUT only it happens *after* the aggregation value has been computed, so it'll work as you expect.
+  
+- SQL evaluation order:\
+  ![image](https://user-images.githubusercontent.com/51430523/140808063-47f67c9d-531d-4a66-9893-81f565a31c57.png)
+
+- 子查询才需要临时表过渡
+
+## Solutions
+
+```ruby
+
+SELECT c.customer_id AS customer_id, c.name AS name 
+    # (CASE WHEN O.o.quantity IS NOT NULL THEN (p.price * o.quantity) 
+    #      ELSE 0) AS t_price, 
+    # (SELECT EXTRACT (YEAR_MONTH FROM 
+    #                    ( SELECT DATE_FORMAT(o.order_date, '%Y-%m-%d') 
+    #                     FROM t.order_date))) AS yr_day
+FROM
+(Product p JOIN Orders o 
+ON p.product_id = o.product_id
+JOIN Customers c
+ON o.customer_id = c.customer_id)   # 子查询才需要临时表过渡！此处不需要～
+
+GROUP BY c.customer_id, c.name
+HAVING SUM(
+    (CASE WHEN o.order_date LIKE '2020-06-%'
+          THEN (p.price * o.quantity) END
+     )) >= 100
+    AND 
+    SUM(
+    (CASE WHEN o.order_date LIKE '2020-07-%'
+          THEN (p.price * o.quantity) END 
+     )) >= 100;
+
+```
