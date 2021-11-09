@@ -169,3 +169,49 @@ HAVING SUM(
      )) >= 100;
 
 ```
+
+
+
+# 1179. Reformat Department Table
+
+[Problem](https://leetcode.com/problems/reformat-department-table/)
+
+## Things to notice
+- `GROUP BY` & aggregation:\
+  把同一group by条件下的所有rows aggregate在一起，然后可以任意access到其中的一行。\
+  在MySQL中，允许下面这样的写法:\
+  ![image](https://user-images.githubusercontent.com/51430523/140868518-1290d190-2ef3-4ccb-ab0a-36c887bf3e10.png)
+  ![image](https://user-images.githubusercontent.com/51430523/140868558-6a29eaeb-ced6-4f61-9cd4-c1784d06e5eb.png)
+  ![image](https://user-images.githubusercontent.com/51430523/140868630-cd5b2565-a9db-4092-a0ac-52831e1d156f.png)\
+  此时在第一组中，有三条记录，也就是说有三个revenue，那么此时select id, revenue就无法判定应该取哪一个revenue，所以这样的操作在标准SQL中是不允许的，只能通过聚合函数来处理。而MySQL在这里提供了一种便利的方式，却让理解它的工作方式变得更加困难。\
+  ![image](https://user-images.githubusercontent.com/51430523/140872150-3ba72a12-4b34-4c1b-a0f1-634986d663d3.png)
+
+
+## Solutions
+
+"row-to-column" 行转列
+
+```ruby
+
+SELECT id,
+    SUM(CASE WHEN month = 'Jan' THEN revenue END) AS Jan_Revenue,
+    SUM(CASE WHEN month = 'Feb' THEN revenue END) AS Feb_Revenue,
+    SUM(CASE WHEN month = 'Mar' THEN revenue END) AS Mar_Revenue,
+    SUM(CASE WHEN month = 'Apr' THEN revenue END) AS Apr_Revenue,
+    SUM(CASE WHEN month = 'May' THEN revenue END) AS May_Revenue,
+    SUM(CASE WHEN month = 'Jun' THEN revenue END) AS Jun_Revenue,
+    SUM(CASE WHEN month = 'Jul' THEN revenue END) AS Jul_Revenue,
+    SUM(CASE WHEN month = 'Aug' THEN revenue END) AS Aug_Revenue,
+    SUM(CASE WHEN month = 'Sep' THEN revenue END) AS Sep_Revenue,
+    SUM(CASE WHEN month = 'Oct' THEN revenue END) AS Oct_Revenue,
+    SUM(CASE WHEN month = 'Nov' THEN revenue END) AS Nov_Revenue,
+    SUM(CASE WHEN month = 'Dec' THEN revenue END) AS Dec_Revenue
+FROM Department
+GROUP BY id;
+
+```
+
+
+
+
+
