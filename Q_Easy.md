@@ -212,6 +212,15 @@ GROUP BY id;
 ```
 
 
+# 1757. Recyclable and Low Fat Products
+
+## Things to notice
+- ENUM type:\
+  a string object with a value chosen from a list of permitted values that are enumerated explicitly in the column specification at table creation time.
+
+
+
+
 
 
 
