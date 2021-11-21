@@ -21,6 +21,8 @@ ON p.personID = a.personID;
 
 # 196. Delete Duplicate Emails
 
+[Problem](https://leetcode.com/problems/delete-duplicate-emails/)
+
 ## Things to notice
 - Every derived table must have its own alias\
   每一个派生出来的表都必须有一个自己的别名.\
@@ -125,6 +127,10 @@ where not exists
 [Problem](https://leetcode.com/problems/customer-order-frequency/)
 
 ## Things to notice
+
+- `SUM`/`COUNT` + `CASE...WHEN...END`\
+  window function w/ aggregation function
+
 - DATE functions\
   `DATE_FORMAT(date, format)`\
   format a date as specified.
@@ -213,6 +219,8 @@ GROUP BY id;
 
 
 # 1757. Recyclable and Low Fat Products
+
+[Problem](https://leetcode.com/problems/recyclable-and-low-fat-products/)
 
 ## Things to notice
 - ENUM type:\
