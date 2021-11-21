@@ -33,6 +33,7 @@ ON p.personID = a.personID;
 
 - `UNION`\
   two things for `UNION` must be two `SELECT` clause, and the unioned table should have an alias.
+  
 - `DELETE`
   DELETE xxx FROM table WHERE ...\
   example:
@@ -40,6 +41,7 @@ ON p.personID = a.personID;
   DELETE t1 FROM t1 LEFT JOIN t2 ON t1.id=t2.id WHERE t2.id IS NULL;
   ```
   这种DELETE方式很陌生，竟然和SELETE的写法类似。它涉及到t1和t2两张表，DELETE t1表示要删除t1的一些记录，具体删哪些，就看WHERE条件，满足就删；\
+  *官方sql中，DELETE p1就表示从p1表中删除满足WHERE条件的记录。*\
   here, t1 left join t2, there can be some l2.id that not match l1.id, so we need to delete "WHERE" clause denotes -> **delete ALL fields in t1 which not match t2.id**.
 
 - `IN` vs. `EXISTS`\
