@@ -145,7 +145,10 @@ where not exists
 - SQL evaluation order:\
   ![image](https://user-images.githubusercontent.com/51430523/140808063-47f67c9d-531d-4a66-9893-81f565a31c57.png)
 
-- 子查询才需要临时表过渡
+- 子查询才需要临时表过渡 (add *alias* to the subquery table!)\
+  "subquery":\
+  a `SELECT` query nested in another `SELECT` query.\
+  usually used in: WHERE, IN, EXISTS, FROM.
 
 ## Solutions
 
