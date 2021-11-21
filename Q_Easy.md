@@ -24,6 +24,9 @@ ON p.personID = a.personID;
 [Problem](https://leetcode.com/problems/delete-duplicate-emails/)
 
 ## Things to notice
+
+- *If multiple columns exist, which column is the target which should used as the same in two tables. we use this column for GROUP BY, and then compare other columns.*
+
 - Every derived table must have its own alias\
   每一个派生出来的表都必须有一个自己的别名.\
   因为修改表的时候不能直接查询被修改的表, 所以需要中间表(临时表)过渡。
