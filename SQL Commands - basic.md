@@ -249,8 +249,8 @@ list each parameter and the data type separated by a comma as shown below. \
 
 # SQL Operators
   [link](https://www.w3schools.com/sql/sql_operators.asp)\
-  \
-  ## bitwise operators:\
+  
+  ## bitwise operators:
   ![image](https://user-images.githubusercontent.com/51430523/138361402-d2f1741d-e024-4180-8c02-ebf89fdda293.png)
   - ^ (bitwise exclusive or)\
   "XOR"\
