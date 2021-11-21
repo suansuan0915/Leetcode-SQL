@@ -125,7 +125,15 @@ where not exists
 
 ```
 
+- method 4:\
+  cross join
+```ruby
 
+DELETE p2
+FROM Person p1 CROSS JOIN Person p2
+WHERE p1.email=p2.email AND p1.id<p2.id
+
+```
 
 # 1511. Customer Order Frequency
 
