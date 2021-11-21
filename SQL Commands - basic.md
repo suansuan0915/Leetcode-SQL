@@ -154,7 +154,10 @@ A database most often contains one or more tables. Each table is identified by a
 - `EXISTS`\
   test for the existence of any record in a subquery.\
   returns TRUE if the subquery returns one or more records.  \
-  ![image](https://user-images.githubusercontent.com/51430523/138357337-3c8ff65d-cd74-42c0-9619-f593d7b50c4c.png)
+  ![image](https://user-images.githubusercontent.com/51430523/138357337-3c8ff65d-cd74-42c0-9619-f593d7b50c4c.png)\
+  \
+  ![image](https://user-images.githubusercontent.com/51430523/142775292-65c288d7-a9c2-459e-89cb-f6aeb0a3949b.png)
+
 
 - `ANY`\
   perform a comparison between a single column value and a range of other values.\
