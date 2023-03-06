@@ -20,13 +20,24 @@ window functions, which are accessed via the OVER clause.
 ![image](https://user-images.githubusercontent.com/51430523/141248141-04691493-f800-4fc6-9092-66bba5240ae2.png)
 
 ![image](https://user-images.githubusercontent.com/51430523/141248351-69ee976c-d9fd-48bc-babd-1e57f3cb4b99.png)\
+
+- Aggregation function聚合函数
+
+![image](https://user-images.githubusercontent.com/51430523/223164310-5fb99d40-2f3b-43ef-8a5c-85b2d652e45a.png)
+
+聚合函数在窗口函数中，是对自身记录、及位于自身记录以上的数据进行求和的结果:\
+![image](https://user-images.githubusercontent.com/51430523/223164916-d7db36b0-4cd9-4847-bb2f-6c948f849613.png)
+
 aggregation window function 后面括号里面不能为空，需要指定聚合的列名。\
 聚合函数作为窗口函数，可以在每一行的数据里直观的看到，截止到本行数据，统计数据是多少（最大值、最小值等）。同时可以看出每一行数据，对整体统计数据的影响。\
 \
 example:\
 ![image](https://user-images.githubusercontent.com/51430523/141249467-307a991e-a4ef-4d0a-8363-cc12671dce56.png)\
 
-\
+- Specific Window Function
+
+**RANK, DENSE_RANK, ROW_NUMBER**
+
 在上述的这三个专用窗口函数中，函数后面的括号不需要任何参数，保持()空着就可以。\
 \
 ![image](https://user-images.githubusercontent.com/51430523/141248528-6aa729ba-9da6-4feb-9e7e-a55ed02465d1.png)\
