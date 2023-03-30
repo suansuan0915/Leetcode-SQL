@@ -1,10 +1,11 @@
 ## Dynamic Pivot Tables in MySQL
 
 - pivot:\
-*Q2252. Dynamic Pivoting of a Table*
-*1777. Product's Price for Each Store*
+*Q2252. Dynamic Pivoting of a Table*\
+*Q1179. Reformat Department Table*\
+*Q1777. Product's Price for Each Store*
 - unpivot:\
-*1795. Rearrange Products Table*
+*Q1795. Rearrange Products Table*
 
 "Pivot":\
 from rows to columns.
