@@ -64,7 +64,10 @@ ON p.personID = a.personID;
 
 - 查询的子集\
   
-  最内层的查询结果还有group by的结果，所以实际上是email和id都有。not in查询的表只可以有一列.\
+  最内层的查询结果还有group by的结果，所以实际上是email和id都有。not in查询的表只可以有一列.
+  
+  use middle table `SELECT p.p_id FROM NEW_TABLE p` to avoid "You can't specify target table 'Person' for update in FROM clause" error
+  
 ```
 DELETE FROM table
 WHERE id NOT IN
