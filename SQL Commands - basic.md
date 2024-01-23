@@ -15,6 +15,13 @@ A database most often contains one or more tables. Each table is identified by a
 ## important SQL commands
 ![image](https://user-images.githubusercontent.com/51430523/138033681-a1730298-d1fc-4f86-9a3c-518208560187.png)
 
+- Primary Key vs. Foreign Key\
+  The table w/ primary key is *parent table* or *reference table*.\
+  The table with the foreign key is called *child table*.\
+  Foreign key is created only when primary key in parent table has been created.\
+  Like: Persons table (PersonId -> primary key), Orders table (PersonId -> foreign key).\
+  --> Sometimes, it's safer to use `LEFT JOIN` on parent table to kid table (instead of `INNER JOIN`), because not all primary key values exist in kid table.
+
 - `SELECT DISTINCT`\
   return only distinct (different) values.\
   ![image](https://user-images.githubusercontent.com/51430523/138033814-d109271b-e8c1-4f59-b976-6c1c582dd4de.png)
@@ -31,6 +38,10 @@ A database most often contains one or more tables. Each table is identified by a
   insert new records in a table.\
   ![image](https://user-images.githubusercontent.com/51430523/138034431-17a773e8-cd7b-4eea-9f63-e67a4ace43cb.png)\
   no specified record will have "null" value.\
+
+- Difference of `TRUNCATE TABLE` and `DROP TABLE'\
+  DROP: delete the table and all data in it.\
+  TRUNCATE: empty all data from the table but keep the table itself.
 
 - null:\
   A NULL value is different from a zero value or a field that contains spaces. A field with a NULL value is one that has been left blank during record creation!\
