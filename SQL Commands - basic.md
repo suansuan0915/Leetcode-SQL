@@ -230,6 +230,11 @@ A database most often contains one or more tables. Each table is identified by a
   Oracle:\
   ![image](https://user-images.githubusercontent.com/51430523/138359539-5dcd5c0d-510f-44f1-843e-3d125d0c6fbe.png)
 
+### Date-Related
+
+- `BETWEEN date1 AND date2`:\
+  start and end *inclusive*.\
+  Thus, if X day duration, either date should be `SUBDATE(date2, INTERVAL (X-1) DAY)`.
   
 # Stored Procedure
 a prepared SQL code that you can save, so the code can be reused over and over again.\
