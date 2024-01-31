@@ -1,4 +1,4 @@
-# Agreggation 
+# Aggregation 
 
 ### Question List
 Check Leetcode SQL 50 Plan list.
