@@ -10,7 +10,7 @@ left join/ right join/ inner join\
 
 
 ## Solution
-```ruby
+```sql
 
 SELECT p.firstName AS firstName, p.lastName AS lastName, a.city AS city, a.state AS state
 FROM Person p LEFT JOIN Address a
@@ -83,7 +83,7 @@ WHERE id NOT IN
   [solution link](https://leetcode-cn.com/problems/delete-duplicate-emails/solution/dui-guan-fang-ti-jie-zhong-delete-he-de-jie-shi-by/)\
   ![image](https://user-images.githubusercontent.com/51430523/140692144-6b85d837-421b-432b-a528-311ee2afbd32.png)
 
-```ruby
+```sql
 
 DELETE p2
 FROM Person p1, Person p2
@@ -94,7 +94,7 @@ WHERE p1.email = p2.email AND p1.id < p2.id;
 - Method 2:\
   ![image](https://user-images.githubusercontent.com/51430523/140693889-1043e311-5eff-4f56-b0be-74a5dfaee7ca.png)
   
-```ruby
+```sql
 
 DELETE FROM Person 
 WHERE id NOT IN
@@ -107,9 +107,21 @@ WHERE id NOT IN
 ```
 此时p是一个table，所以要再select一遍其中的id作为id not in where查询的子集！
 
+OR:
+```sql
+DELETE
+FROM Person
+WHERE (email, id) NOT IN
+    (
+        SELECT email, MIN(id)
+        FROM (SELECT * FROM Person) t
+        GROUP BY email
+    );
+```
+
 - Method 3:\
   `EXISTS`
-```ruby
+```sql
 
 delete
 from Person a
@@ -130,7 +142,7 @@ where not exists
 
 - method 4:\
   cross join
-```ruby
+```sql
 
 DELETE p2
 FROM Person p1 CROSS JOIN Person p2
@@ -168,7 +180,7 @@ WHERE p1.email=p2.email AND p1.id<p2.id
 
 ## Solutions
 
-```ruby
+```sql
 
 SELECT c.customer_id AS customer_id, c.name AS name 
     # (CASE WHEN O.o.quantity IS NOT NULL THEN (p.price * o.quantity) 
@@ -216,7 +228,7 @@ HAVING SUM(
 
 "row-to-column" 行转列
 
-```ruby
+```sql
 
 SELECT id,
     SUM(CASE WHEN month = 'Jan' THEN revenue END) AS Jan_Revenue,
