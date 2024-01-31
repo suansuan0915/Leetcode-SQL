@@ -89,6 +89,11 @@ A database most often contains one or more tables. Each table is identified by a
   ![image](https://user-images.githubusercontent.com/51430523/138218778-0365a1f0-d916-4c2c-8b37-dca617a437c9.png)
 
 - Wildcards 通配符\
+  in MySQL:\
+  <img width="716" alt="image" src="https://github.com/suansuan0915/Leetcode-SQL/assets/51430523/18a97979-a687-4ae0-bbeb-af45a88ba745">\
+  `ESCAPE`:\
+  escape a wildcard character, like `SELECT ... LIKE '67#%%' ESCAPE '#'`, which means to find a pattern like '67%'.
+
   in SQL Server:\
   ![image](https://user-images.githubusercontent.com/51430523/138219013-2f52742a-86c7-4583-bdeb-12f0d7a16bc2.png)\
   in MS Access:\
