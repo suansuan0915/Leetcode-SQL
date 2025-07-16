@@ -37,9 +37,9 @@ A database most often contains one or more tables. Each table is identified by a
 - `INSERT INTO`\
   insert new records in a table.\
   ![image](https://user-images.githubusercontent.com/51430523/138034431-17a773e8-cd7b-4eea-9f63-e67a4ace43cb.png)\
-  no specified record will have "null" value.\
+  no specified record will have "null" value.
 
-- Difference of `TRUNCATE TABLE` and `DROP TABLE'\
+- Difference of `TRUNCATE TABLE` and `DROP TABLE`\
   DROP: delete the table and all data in it.\
   TRUNCATE: empty all data from the table but keep the table itself.
 
@@ -101,7 +101,7 @@ A database most often contains one or more tables. Each table is identified by a
 
 - `IN`\
   可以嵌套一个SELECT语句.\
-  for example:\
+  for example:
   ```
   SELECT ... FROM table1
   WHERE ... IN (SELECT ... FROM table2)
@@ -182,7 +182,7 @@ A database most often contains one or more tables. Each table is identified by a
   The operator must be a standard comparison operator (=, <>, !=, >, >=, <, or <=).\
   ![image](https://user-images.githubusercontent.com/51430523/138357597-4dd2cdf3-fad9-49d4-8c68-a5604f9f9e55.png)
 
-- `ALL`\  
+- `ALL` \  
   returns a boolean value.\
   returns TRUE if ALL of the subquery values meet the condition.\
   is used with SELECT, WHERE and HAVING statements.\
@@ -261,7 +261,7 @@ list each parameter and the data type separated by a comma as shown below. \
   Single line comments start with `--`.
   Any text between -- and the end of the line will be ignored (will not be executed).\
   ![image](https://user-images.githubusercontent.com/51430523/138361100-ccbabc9e-1c37-4250-a682-34465d624ec8.png)
-- Multi-line Comments\
+- Multi-line Comments
   ```
   /*
   
@@ -269,7 +269,7 @@ list each parameter and the data type separated by a comma as shown below. \
   ```
 
 # SQL Operators
-  [link](https://www.w3schools.com/sql/sql_operators.asp)\
+  [link](https://www.w3schools.com/sql/sql_operators.asp)
   
   ## bitwise operators:
   ![image](https://user-images.githubusercontent.com/51430523/138361402-d2f1741d-e024-4180-8c02-ebf89fdda293.png)
